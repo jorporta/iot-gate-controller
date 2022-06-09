@@ -67,6 +67,8 @@ Any message (ie. car) entering the state machine (**OpenClear** state) is assign
 
 This [article](https://docs.aws.amazon.com/greengrass/v2/developerguide/getting-started.html) guides you through the whole process.
 
+<img src="https://github.com/jorporta/iot-gate-controller/blob/main/images/raspi.png" width="800" />
+
 ## Deployment ##
 
 - Create a new AWS IoT Events detector by importing this [model](https://github.com/jorporta/iot-gate-controller/blob/main/gate_controller.json)
