@@ -1,6 +1,8 @@
 # iot-gate-controller
 AWS IoT driven Gate Controller leveraging no-code approach with IoT Events detector
 
+<img src="https://github.com/jorporta/iot-gate-controller/blob/main/images/intro.png" width="400" />
+
 ## Introduction
 
 This project is meant to get familiarized with the following constructs:
@@ -27,3 +29,15 @@ The artifacts running on the device are limited to capture sensory data and exec
 - Notification system in case of anomalies
 
 ## Components
+
+On the device side, there are three components with the following intents:
+- sensors: in charge of polling IR sensory data every second and publish it to the /gate/{gateid}/sensors mqtt topic
+- leds: in charge of reading messages from /gate/{gateid}/leds mqtt topic and switching a green and red leds on/off
+- motor: in charge of reading messages from /gate/{gateid}/motor mqtt topic and opening/closing the gate
+
+<img src="https://github.com/jorporta/iot-gate-controller/blob/main/images/gate.png" width="400" />
+
+## Architecture
+
+<img src="https://github.com/jorporta/iot-gate-controller/blob/main/images/architecture.png" width="600" />
+
