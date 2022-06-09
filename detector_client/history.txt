@@ -15,4 +15,4 @@ qws iotevents-data describe-detector --detector-model-name GateController --key-
 aws iotevents-data describe-detector --detector-model-name GateController --key-value 2 | jq .detector.state.stateName
 
 !!! IMPORTANT, remove the root element manually "detectorModelDefinition" from the detector IOT Events export !!!
-aws iotevents update-detector-model --detector-model-name GateController --detector-model-definition file://GateController.json --role-arn arn:aws:iam::053743494423:role/service-role/AWS_IoTEvents_Gate_ActionRole
+aws iotevents update-detector-model --detector-model-name GateController --detector-model-definition file://GateController.json --role-arn arn:aws:iam::XXXXXXXXXXXX:role/service-role/AWS_IoTEvents_Gate_ActionRole
