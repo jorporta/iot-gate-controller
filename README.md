@@ -67,7 +67,7 @@ Any message (ie. car) entering the state machine (**OpenClear** state) is assign
 
 This [article](https://docs.aws.amazon.com/greengrass/v2/developerguide/getting-started.html) guides you through the whole process.
 
-<img src="https://github.com/jorporta/iot-gate-controller/blob/main/images/raspi.png" width="200" />
+<img src="https://github.com/jorporta/iot-gate-controller/blob/main/images/raspi.png" width="400" />
 
 ## Deployment ##
 
