@@ -39,5 +39,5 @@ On the device side, there are three components with the following intents:
 
 ## Architecture
 
-<img src="https://github.com/jorporta/iot-gate-controller/blob/main/images/architecture.png" width="600" />
+<img src="https://github.com/jorporta/iot-gate-controller/blob/main/images/arch.png" width="600" />
 
