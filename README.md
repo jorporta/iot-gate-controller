@@ -30,15 +30,16 @@ The artifacts running on the device are limited to capture sensory data and exec
 
 <img src="https://github.com/jorporta/iot-gate-controller/blob/main/images/gate.png" width="400" />
 
-## Architecture
+## Design & Architecture
 
-On the device side, there are three components with the following intents:
-- sensors: in charge of polling IR sensory data every second and publish it to the ***/gate/{gateid}/sensors*** mqtt topic
-- leds: in charge of reading messages from ***/gate/{gateid}/leds*** mqtt topic and switching a green and red leds on/off
-- motor: in charge of reading messages from ***/gate/{gateid}/motor*** mqtt topic and opening/closing the gate
+On the device side, there are three Greengrass components with the following intents:
+- _com.example.sensors_: in charge of polling IR sensory data every second and publish it to the ***/gate/{gateid}/sensors*** mqtt topic
+- _com.example.leds_: in charge of reading messages from ***/gate/{gateid}/leds*** mqtt topic and switching a green and red leds on/off
+- _com.example.motor_: in charge of reading messages from ***/gate/{gateid}/motor*** mqtt topic and opening/closing the gate
 
 Messages received from the sensors is pushed to the Gate Controller detector via the ***gate_sensors*** AWS IoT Rule.
-Commands pushed by teh Gate Controller detector are pushed as messages to the respective leds and motor topics.
+Commands sent by the Gate Controller detector are pushed as messages to the respective leds and motor topics.
+Whenver an alarm is triggered (eg. a car has obstructed the gate for more than 5 seconds), an notification is pushed to a dedicated Amazon SNS topic, resulting into an SMS being sent by the subscriber(s) (eg. gate personnel).
 
 <img src="https://github.com/jorporta/iot-gate-controller/blob/main/images/arch.png" width="800" />
 
