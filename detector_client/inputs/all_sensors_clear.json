@@ -1,0 +1,14 @@
+{
+    "messages": [
+        {
+            "inputName": "gate_sensors",
+            "messageId": "1691d235-16ed-486b-be91-2c32dc887f40",
+            "payload": {
+                "gateid": "2",
+                "sensor1":false,
+                "sensor2":false, 
+                "uuid": "1691d235-16ed-486b-be91-2c32dc887f40"
+            }
+        }
+    ]
+}

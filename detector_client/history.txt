@@ -1,0 +1,18 @@
+sudo yum install jq
+
+aws iotevents list-inputs
+aws iotevents list-detector-models
+aws iotevents delete-detector-model --detector-model-name "AWS_IoTEvents_Hello_World1653578950147"
+
+aws iotevents-data batch-put-message --cli-input-json file://inputs/gate_close_clear.json
+aws iotevents-data batch-put-message --cli-input-json file://inputs/gate_open_blocked.json
+aws iotevents-data batch-put-message --cli-input-json file://inputs/gate_open_clear.json
+
+aws iotevents describe-detector-model --detector-model-name GateController
+
+# Get detector state
+qws iotevents-data describe-detector --detector-model-name GateController --key-value 2
+aws iotevents-data describe-detector --detector-model-name GateController --key-value 2 | jq .detector.state.stateName
+
+!!! IMPORTANT, remove the root element manually "detectorModelDefinition" from the detector IOT Events export !!!
+aws iotevents update-detector-model --detector-model-name GateController --detector-model-definition file://GateController.json --role-arn arn:aws:iam::053743494423:role/service-role/AWS_IoTEvents_Gate_ActionRole
