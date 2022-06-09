@@ -33,11 +33,11 @@ The artifacts running on the device are limited to capture sensory data and exec
 ## Architecture
 
 On the device side, there are three components with the following intents:
-- sensors: in charge of polling IR sensory data every second and publish it to the /gate/{gateid}/sensors mqtt topic
-- leds: in charge of reading messages from /gate/{gateid}/leds mqtt topic and switching a green and red leds on/off
-- motor: in charge of reading messages from /gate/{gateid}/motor mqtt topic and opening/closing the gate
+- sensors: in charge of polling IR sensory data every second and publish it to the _/gate/{gateid}/sensors_ mqtt topic
+- leds: in charge of reading messages from _/gate/{gateid}/leds_ mqtt topic and switching a green and red leds on/off
+- motor: in charge of reading messages from _/gate/{gateid}/motor_ mqtt topic and opening/closing the gate
 
-Messages received from the sensors is pushed to the Gate Controller detector via the gate_sensors AWS IoT Rule.
+Messages received from the sensors is pushed to the Gate Controller detector via the _gate_sensors_ AWS IoT Rule.
 Commands pushed by teh Gate Controller detector are pushed as messages to the respective leds and motor topics.
 
 <img src="https://github.com/jorporta/iot-gate-controller/blob/main/images/arch.png" width="800" />
@@ -52,9 +52,9 @@ There is an independent detector created for each gate; which is achieved by spe
 <img src="https://github.com/jorporta/iot-gate-controller/blob/main/images/detector.png" width="800" />
 
 AWS IoT Events detectors offer the abilty to set timers. The granularity of these is down to the minute, which was inconvenient in for our use case.
-To have timers to the second, from the _OpenBlocked_ state we trigger a lambda function whose sole purpose is to act as a countdown.
+To have timers to the second, from the **OpenBlocked** state we trigger a lambda function whose sole purpose is to act as a countdown.
 
 Once the timer is off, the lambda will post a message to the gate topic/{gateid}/alarm which will be passed to the gate controller detector via the _gate_timeout_ rule.
 A timeout message is received 5 seconds after a car has activated the IR sensor situated next to the gate.
 To prevent side effects from triggering alarms when we are not supposed to, we'll keep track of which car is under the gate and match alarms with cars.
-Any message (ie. car) entering the state machine (OpenClear state) is assigned a uuid, and the OpenBlocked state will only transition to the Alarm state if the _alarm_ message received has a uuid that matches that of the current car.
+Any message (ie. car) entering the state machine (**OpenClear** state) is assigned a uuid, and the **OpenBlocked** state will only transition to the **Alarm** state if the _alarm_ message received has a uuid that matches that of the current car.
