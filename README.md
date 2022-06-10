@@ -71,7 +71,7 @@ This [article](https://docs.aws.amazon.com/greengrass/v2/developerguide/getting-
 
 ## Deployment ##
 
-**Note:** Make sure you replace the XXXXXXXXXX placeholders in gate_controller.json and gate_alarm.py with you own account id.
+**Note:** Make sure you replace the XXXXXXXXXX placeholders in _gate_controller.json_ and _gate_alarm.py_ with your own account id.
 
 - Create a new AWS IoT Events detector by importing this [model](https://github.com/jorporta/iot-gate-controller/blob/main/gate_controller.json)
 - Create the gate_sensors topic rule importing this [model](https://github.com/jorporta/iot-gate-controller/blob/main/gate_sensors.json)
