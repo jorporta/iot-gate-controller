@@ -118,7 +118,7 @@ sudo /greengrass/v2/bin/greengrass-cli component list
 ## Electronics ##
 
 - **IR Sensors** are expected to be connected to pins **40** and **38** of the Raspberry Pi.
-- Green and red **leds** are expected to be connected to pins **23** and **25** of the Raspberry Pi. Both leds pulled down by a **330 ohm** resistor.
+- Green and red **leds** are expected to be connected to pins **23** and **25** of the Raspberry Pi. Both leds are pulled down with a **330 ohm** resistor.
 - The **servo motor** to control the gate is expected to be connected to pins **12** of the Raspberry Pi.
 
 Adapt the code if need be.
